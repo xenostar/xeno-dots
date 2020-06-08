@@ -40,6 +40,11 @@ function go() {
     fi
 }
 
+# Git commit with current branch tag
+function gcc() {
+	git commit -m "[$(git_current_branch)] $1"
+}
+
 # Easy git commits
 function lazygit() {
 	git add --all
