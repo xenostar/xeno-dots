@@ -41,6 +41,7 @@ function go() {
 }
 
 # Git commit with current branch tag
+# Requires zsh for git_current_branch function to work.
 function gcc() {
 	git commit -m "[$(git_current_branch)] $1"
 }
