@@ -23,9 +23,9 @@ eval $(thefuck --alias)
 function iterm2_print_user_vars() {
   # extend this to add whatever
   # you want to have printed out in the status bar
-	iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
+  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
   iterm2_set_user_var nodeVersion $(node -v)
-	iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+  iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
   iterm2_set_user_var pwd $(pwd)
 }
 
@@ -43,24 +43,24 @@ function go() {
 # Git commit with current branch tag
 # Requires zsh for git_current_branch function to work.
 function gcc() {
-	git commit -m "[$(git_current_branch)] $1"
+  git commit -m "[$(git_current_branch)] $1"
 }
 
 # Easy git commits
 function lazygit() {
-	git add --all
-	git commit -m "$1"
-	git push
+  git add --all
+  git commit -m "$1"
+  git push
 }
 
 # List global npm packages
 function npmglobal() {
-	npm list -g --depth 0
+  npm list -g --depth 0
 }
 
 # Install common global npm packages
 function npminstall() {
-	npm install -g bower eslint gatsby-cli grunt-cli ngrok now serve typescript
+  npm install -g bower eslint gatsby-cli grunt-cli ngrok now serve typescript
 }
 
 
