@@ -31,7 +31,8 @@ function iterm2_print_user_vars() {
 
 # iTermocil "go" shortcut
 function go() {
-  if [ $1 ] then
+  if [ $1 ]
+  then
     itermocil $1 --here
     # itermocil $1
   else
