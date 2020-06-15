@@ -60,7 +60,7 @@ function npmglobal() {
 
 # Install common global npm packages
 function npminstall() {
-  npm install -g bower eslint gatsby-cli grunt-cli ngrok now serve typescript
+  npm install -g bower gatsby-cli grunt-cli lighthouse ngrok now serve typescript
 }
 
 
