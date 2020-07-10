@@ -40,6 +40,11 @@ function go() {
   fi
 }
 
+# Start up the Docket local environment
+function docketdev() {
+  node scripts/migrate && node server/index.js
+}
+
 # Git commit with current branch tag
 # Requires zsh for git_current_branch function to work.
 function gcc() {
@@ -60,7 +65,12 @@ function npmglobal() {
 
 # Install common global npm packages
 function npminstall() {
-  npm install -g bower gatsby-cli grunt-cli lighthouse ngrok now serve typescript
+  npm install -g bower gatsby-cli grunt-cli lighthouse ngrok now serve
+}
+
+# Uninstall common global npm packages
+function npmuninstall() {
+  npm uninstall -g bower gatsby-cli grunt-cli lighthouse ngrok now serve
 }
 
 
