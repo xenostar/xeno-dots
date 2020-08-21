@@ -51,6 +51,10 @@ function gcc() {
   git commit -m "[$(git_current_branch)] $1"
 }
 
+function gbclean() {
+  git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev|project-133)\s*$)" | command xargs -n 1 git branch -d
+}
+
 # Easy git commits
 function lazygit() {
   git add --all

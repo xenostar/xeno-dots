@@ -1,0 +1,29 @@
+{
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // "git.autofetch": true,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "material-icon-theme.activeIconPack": "react",
+  "telemetry.enableTelemetry": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "window.nativeTabs": true,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
