@@ -13,6 +13,12 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 # thefuck
 eval $(thefuck --alias)
 
+# oh-my-zsh Title https://www.robertcooper.me/elegant-development-experience-with-zsh-and-hyper-terminal
+function precmd () {
+  window_title="\\033]0;${PWD##*/}\\007"
+  echo -ne "$window_title"
+}
+
 
 
 #
