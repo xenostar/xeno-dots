@@ -2,6 +2,13 @@
 # Plugin Configuration
 #
 
+# Load Pure Prompt
+# autoload -U promptinit; promptinit
+# prompt pure
+
+# Spaceship Prompt Configuartion - https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -13,8 +20,17 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 # thefuck
 eval $(thefuck --alias)
 
-# oh-my-zsh Title https://www.robertcooper.me/elegant-development-experience-with-zsh-and-hyper-terminal
+# oh-my-zsh Configuration
 function precmd () {
+  # Adds new line after every prompt
+  # precmd() {
+  #     echo
+  # }
+  $funcstack[1]() {
+    echo
+  }
+
+  # Simplified Title - https://www.robertcooper.me/elegant-development-experience-with-zsh-and-hyper-terminal
   window_title="\\033]0;${PWD##*/}\\007"
   echo -ne "$window_title"
 }
