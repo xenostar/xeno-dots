@@ -23,16 +23,16 @@ eval $(thefuck --alias)
 # oh-my-zsh Configuration
 function precmd () {
   # Adds new line after every prompt
-  # precmd() {
-  #     echo
-  # }
-  $funcstack[1]() {
-    echo
+  precmd() {
+      echo
   }
+  # $funcstack[1]() {
+  #   echo
+  # }
 
   # Simplified Title - https://www.robertcooper.me/elegant-development-experience-with-zsh-and-hyper-terminal
-  window_title="\\033]0;${PWD##*/}\\007"
-  echo -ne "$window_title"
+  # window_title="\\033]0;${PWD##*/}\\007"
+  # echo -ne "$window_title"
 }
 
 
@@ -64,7 +64,8 @@ function go() {
 
 # Start up the Docket local environment
 function docketdev() {
-  node scripts/migrate && node server/index.js
+  # node scripts/migrate && node server/index.js
+  node scripts/migrate && nodemon --inspect server/index.js
 }
 
 # Git commit with current branch tag
