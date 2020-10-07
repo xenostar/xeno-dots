@@ -92,12 +92,12 @@ function npmglobal() {
 
 # Install common global npm packages
 function npminstall() {
-  npm install -g bower gatsby-cli grunt-cli lighthouse ngrok now serve
+  npm install -g gatsby-cli grunt-cli lighthouse ngrok nodemon now serve
 }
 
 # Uninstall common global npm packages
 function npmuninstall() {
-  npm uninstall -g bower gatsby-cli grunt-cli lighthouse ngrok now serve
+  npm uninstall -g gatsby-cli grunt-cli lighthouse ngrok nodemon now serve
 }
 
 
