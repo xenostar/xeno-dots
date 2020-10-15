@@ -71,8 +71,16 @@ function docketdev() {
 # Git commit with current branch tag
 # Requires zsh for git_current_branch function to work.
 function gcc() {
-  git commit -m "[$(git_current_branch)] $1"
+  # branch="$(git_current_branch)"
+  # prefix="issue-"
+  # prefix_removed_branch=${branch/#$prefix}
+  echo git commit -m "#${$(git_current_branch)/#issue-} $1"
 }
+
+# Old Git commit function
+# function gcc() {
+#   echo git commit -m "#$(git_current_branch) $1"
+# }
 
 function gbclean() {
   git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev|project-133)\s*$)" | command xargs -n 1 git branch -d
