@@ -74,7 +74,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   docker docker-compose docker-machine
-  dotenv
+  # dotenv
   git
   last-working-dir
   npm
