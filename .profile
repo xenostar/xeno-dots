@@ -65,8 +65,8 @@ function go() {
 # Start up the Docket local environment
 function docketdev() {
   # node scripts/migrate && node server/index.js
-  # node scripts/migrate && nodemon --inspect server/index.js
-  node -r dotenv/config scripts/migrate && nodemon -r dotenv/config --inspect server/index.js
+  node scripts/migrate && nodemon --inspect server/index.js
+  # node -r dotenv/config scripts/migrate && nodemon -r dotenv/config --inspect server/index.js
 }
 
 # Git commit with current branch name ("issue-" removed)
