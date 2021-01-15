@@ -69,6 +69,10 @@ function docketdev() {
   # node -r dotenv/config scripts/migrate && nodemon -r dotenv/config --inspect server/index.js
 }
 
+function zoomdev() {
+  source ~/Docket/etc/zoom-client.sh && z devep
+}
+
 # Git commit with current branch name ("issue-" removed)
 # Requires zsh for git_current_branch function to work.
 function gcc() {
