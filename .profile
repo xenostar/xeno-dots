@@ -42,14 +42,14 @@ function precmd () {
 #
 
 # Add new variables to iTerm2 session
-function iterm2_print_user_vars() {
-  # extend this to add whatever
-  # you want to have printed out in the status bar
-  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
-  iterm2_set_user_var nodeVersion $(node -v)
-  iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
-  iterm2_set_user_var pwd $(pwd)
-}
+# function iterm2_print_user_vars() {
+#   # extend this to add whatever
+#   # you want to have printed out in the status bar
+#   iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
+#   iterm2_set_user_var nodeVersion $(node -v)
+#   iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+#   iterm2_set_user_var pwd $(pwd)
+# }
 
 # iTermocil "go" shortcut
 function go() {
@@ -70,34 +70,36 @@ function docketdev() {
 }
 
 function zoomdev() {
-  source ~/Docket/etc/zoom-client.sh && z devep
+  source ~/Docket/docket/scripts/zoom-client.sh && z devep
+}
+
+# Git commit with current branch name
+# Requires zsh for git_current_branch function to work.
+function gcc() {
+  # git commit -m "#$(git_current_branch) $1"
+  git commit -m "$(git_current_branch) $1"
 }
 
 # Git commit with current branch name ("issue-" removed)
 # Requires zsh for git_current_branch function to work.
-function gcc() {
+function gccold() {
   # branch="$(git_current_branch)"
   # prefix="issue-"
   # prefix_removed_branch=${branch/#$prefix}
   git commit -m "#${$(git_current_branch)/#issue-} $1"
 }
 
-# Git commit with current branch name
-# Requires zsh for git_current_branch function to work.
-function gccb() {
-  echo git commit -m "#$(git_current_branch) $1"
-}
-
-function gbclean() {
-  git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev|project-133)\s*$)" | command xargs -n 1 git branch -d
-}
+# Clean up old branches
+# function gbclean() {
+#   git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev|project-133)\s*$)" | command xargs -n 1 git branch -d
+# }
 
 # Easy git commits
-function lazygit() {
-  git add --all
-  git commit -m "$1"
-  git push
-}
+# function lazygit() {
+#   git add --all
+#   git commit -m "$1"
+#   git push
+# }
 
 # List global npm packages
 function npmglobal() {
