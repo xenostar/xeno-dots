@@ -79,6 +79,9 @@ function gcc() {
   # git commit -m "#$(git_current_branch) $1"
   git commit -m "$(git_current_branch) $1"
 }
+function gccn() {
+  git commit --no-verify -m "$(git_current_branch) $1"
+}
 
 # Git commit with current branch name ("issue-" removed)
 # Requires zsh for git_current_branch function to work.
@@ -87,6 +90,10 @@ function gccold() {
   # prefix="issue-"
   # prefix_removed_branch=${branch/#$prefix}
   git commit -m "#${$(git_current_branch)/#issue-} $1"
+}
+
+function flushdns() {
+  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder && echo \"DNS cache flushed successfully\"
 }
 
 # Clean up old branches
