@@ -41,14 +41,14 @@ load-nvmrc
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # thefuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # oh-my-zsh Configuration
 function precmd () {
   # Adds new line after every prompt
-  precmd() {
-      echo
-  }
+  # precmd() {
+  #     echo
+  # }
   # $funcstack[1]() {
   #   echo
   # }
@@ -86,15 +86,15 @@ function go() {
 }
 
 # Start up the Docket local environment
-function docketdev() {
-  # node scripts/migrate && node server/index.js
-  node scripts/migrate && nodemon --inspect server/index.js
-  # node -r dotenv/config scripts/migrate && nodemon -r dotenv/config --inspect server/index.js
-}
+# function docketdev() {
+#   # node scripts/migrate && node server/index.js
+#   node scripts/migrate && nodemon --inspect server/index.js
+#   # node -r dotenv/config scripts/migrate && nodemon -r dotenv/config --inspect server/index.js
+# }
 
-function zoomdev() {
-  source ~/Docket/docket/scripts/zoom-client.sh && z devep
-}
+# function zoomdev() {
+#   source ~/Docket/docket/scripts/zoom-client.sh && z devep
+# }
 
 # Git commit with current branch name
 # Requires zsh for git_current_branch function to work.
@@ -102,6 +102,7 @@ function gcc() {
   # git commit -m "#$(git_current_branch) $1"
   git commit -m "$(git_current_branch) $1"
 }
+# Same as above but with no code verification required
 function gccn() {
   git commit --no-verify -m "$(git_current_branch) $1"
 }
