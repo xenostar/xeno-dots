@@ -17,8 +17,6 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.fontFamily": "Fira Code",
 	"editor.fontLigatures": true,
-	"editor.formatOnSave": true,
-	"editor.guides.bracketPairs": true,
 	"editor.inlineSuggest.enabled": true,
 	"editor.insertSpaces": false,
 	"editor.linkedEditing": true,
@@ -57,9 +55,12 @@
 	"terminal.integrated.fontFamily": "Source Code Pro for Powerline",
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"window.dialogStyle": "custom",
-	"window.zoomLevel": 1,
 	"workbench.colorTheme": "One Dark Pro",
 	"workbench.editor.untitled.hint": "hidden",
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"editor.guides.bracketPairs": "active",
+	"eslint.alwaysShowStatus": true,
+	"workbench.editor.tabSizing": "shrink",
+	"window.zoomLevel": 1
 }
