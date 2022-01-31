@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship-prompt/spaceship"
+ZSH_THEME="spaceship"
 # ZSH_THEME="agnoster"
 # ZSH_THEME=""
 
@@ -109,7 +109,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias ls="exa -la"
 alias change="code ~/.zshrc"
 alias update="source ~/.zshrc"
