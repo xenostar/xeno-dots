@@ -1,5 +1,3 @@
-source ~/.profile
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -78,8 +76,8 @@ plugins=(
   git
   last-working-dir
   npm
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
@@ -115,3 +113,5 @@ source $ZSH/oh-my-zsh.sh
 alias ls="exa -la"
 alias change="code ~/.zshrc"
 alias update="source ~/.zshrc"
+
+source ~/.profile
