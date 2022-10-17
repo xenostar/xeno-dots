@@ -2,6 +2,10 @@
 # Plugin Configuration
 #
 
+# ZSH
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+ZSH_THEME_TERM_TITLE_IDLE="%~"
+
 # Load Pure Prompt
 # autoload -U promptinit; promptinit
 # prompt pure

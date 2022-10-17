@@ -77,8 +77,6 @@ plugins=(
   zsh-syntax-highlighting # Must be last plugin
 )
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
