@@ -70,13 +70,11 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  # docker docker-compose docker-machine
   dotenv
   git
   last-working-dir
-  npm
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  zsh-syntax-highlighting # Must be last plugin
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
