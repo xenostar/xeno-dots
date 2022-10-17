@@ -113,4 +113,4 @@ alias ls="exa -la"
 alias change="code ~/.zshrc"
 alias update="source ~/.zshrc"
 
-source ~/.profile
+source "$HOME/.profile"

@@ -59,6 +59,8 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 
 
+
+
 #
 # Custom Functions
 #
@@ -137,6 +139,8 @@ function npmuninstall() {
 
 
 
+
+
 #
 # Other stuff
 #
@@ -146,4 +150,4 @@ function npmuninstall() {
 # DEFAULT_USER="xenobook"
 
 # iTerm2 Shell Integration
-source ~/.iterm2_shell_integration.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
