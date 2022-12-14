@@ -11,7 +11,8 @@ ZSH_THEME_TERM_TITLE_IDLE="%~"
 # prompt pure
 
 # Spaceship Prompt Configuartion - https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
-SPACESHIP_PROMPT_ADD_NEWLINE=false
+# SPACESHIP_PROMPT_ADD_NEWLINE=false
+# SPACESHIP_ASYNC_SHOW=false
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -41,7 +42,7 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # iTermocil
-compctl -g '~/.itermocil/*(:t:r)' itermocil
+# compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # thefuck
 # eval $(thefuck --alias)
@@ -80,15 +81,15 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 # }
 
 # iTermocil "go" shortcut
-function go() {
-  if [ $1 ]
-  then
-    itermocil $1 --here
-    # itermocil $1
-  else
-    itermocil --list
-  fi
-}
+# function go() {
+#   if [ $1 ]
+#   then
+#     itermocil $1 --here
+#     # itermocil $1
+#   else
+#     itermocil --list
+#   fi
+# }
 
 # Git commit with current branch name
 # Requires zsh for git_current_branch function to work.
@@ -154,4 +155,4 @@ function npmuninstall() {
 # DEFAULT_USER="xenobook"
 
 # iTerm2 Shell Integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
