@@ -41,7 +41,7 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# iTermocil
+# iTermocil autocompletion
 # compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # thefuck
@@ -85,7 +85,6 @@ load-nvmrc
 #   if [ $1 ]
 #   then
 #     itermocil $1 --here
-#     # itermocil $1
 #   else
 #     itermocil --list
 #   fi
