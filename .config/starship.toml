@@ -20,6 +20,7 @@ symbol = " "
 read_only = " "
 
 [docker_context]
+disabled=true
 symbol = " "
 
 [elixir]
