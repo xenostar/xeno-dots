@@ -103,8 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll="exa -la"
 alias change="code ~/.zshrc"
+alias gdiffc='git diff | pbcopy'
+alias gdifft='git diff -u > diff.txt'
+alias ll='exa -la'
 alias update="source ~/.zshrc"
 
 source "$HOME/.profile"
