@@ -7,10 +7,6 @@ GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
 ZSH_THEME_TERM_TITLE_IDLE="%~"
 
-# Load Pure Prompt
-# autoload -U promptinit; promptinit
-# prompt pure
-
 # Spaceship Prompt Configuartion - https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
 # SPACESHIP_PROMPT_ADD_NEWLINE=false
 # SPACESHIP_ASYNC_SHOW=false
