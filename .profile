@@ -78,14 +78,14 @@ load-nvmrc
 # }
 
 # iTermocil "go" shortcut
-# function go() {
-#   if [ $1 ]
-#   then
-#     itermocil $1 --here
-#   else
-#     itermocil --list
-#   fi
-# }
+function go() {
+  if [ $1 ]
+  then
+    itermocil $1 --here
+  else
+    itermocil --list
+  fi
+}
 
 # Git commit with current branch name
 # Requires zsh for git_current_branch function to work.
