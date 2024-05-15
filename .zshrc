@@ -108,6 +108,7 @@ alias gdiffc='git diff | pbcopy'
 alias gdifft='git diff -u > diff.txt'
 alias ll='exa -la'
 alias update="source ~/.zshrc"
+alias mypath='echo -e ${PATH//:/\\n}'
 
 source "$HOME/.profile"
 
