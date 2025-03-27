@@ -69,9 +69,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  dotenv
   git
-  last-working-dir
+  # gitfast
+  # last-working-dir
   zsh-autosuggestions
   zsh-syntax-highlighting # Must be last plugin
 )
@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Personal aliases
 alias change="code ~/.zshrc"
 alias gdiffc='git diff | pbcopy'
 alias gdifft='git diff -u > diff.txt'
@@ -110,9 +112,11 @@ alias ll='exa -la'
 alias update="source ~/.zshrc"
 alias mypath='echo -e ${PATH//:/\\n}'
 
+# Sourcing other profiles
 source "$HOME/.profile"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# iTerm shell integration
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Enable Starship Shell
 eval "$(starship init zsh)"
