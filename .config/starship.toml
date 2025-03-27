@@ -99,13 +99,15 @@ RedHatEnterprise = "󱄛"
 show_always = true
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:text"
-format = '[ $user ]($style)'
+# format = '[ $user ]($style)'
+format = '[ ]($style)'
 
 [directory]
 style = "fg:mantle bg:peach"
 format = "[ $path ]($style)"
 truncation_length = 3
-truncation_symbol = "…/"
+# truncation_symbol = "…/"
+truncation_symbol = ""
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -150,7 +152,7 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [java]
-# disabled = true
+disabled = true
 symbol = " "
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
