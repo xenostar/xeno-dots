@@ -1,3 +1,6 @@
+# source: https://github.com/typecraft-dev/dotfiles/blob/master/starship/.config/starship.toml
+# youtube video: https://www.youtube.com/watch?v=ZDV4edcaXSY
+
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
@@ -78,7 +81,7 @@ Ubuntu = "󰕈"
 SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
-Macos = "󰀵"
+Macos = ""
 Manjaro = ""
 Linux = "󰌽"
 Gentoo = "󰣨"
@@ -97,13 +100,13 @@ RedHatEnterprise = "󱄛"
 show_always = true
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:text"
-format = '[ ]($style)'
+format = '[ $user ]($style)'
 
 [directory]
 style = "fg:mantle bg:peach"
 format = "[ $path ]($style)"
 truncation_length = 3
-truncation_symbol = ""
+truncation_symbol = "…/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -116,7 +119,6 @@ truncation_symbol = ""
 symbol = ""
 style = "bg:teal"
 format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
-truncation_length = 55
 
 [git_status]
 style = "bg:teal"
@@ -148,7 +150,6 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [java]
-disabled = true
 symbol = " "
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
@@ -164,13 +165,11 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [python]
-disabled = true
 symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [docker_context]
-disabled = true
 symbol = ""
 style = "bg:mantle"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
