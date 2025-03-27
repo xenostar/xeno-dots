@@ -3,13 +3,8 @@
 #
 
 # ZSH
-GIT_COMPLETION_CHECKOUT_NO_GUESS=1
+GIT_COMPLETION_CHECKOUT_NO_GUESS=1 # Apparently only shows local branhces?
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
-ZSH_THEME_TERM_TITLE_IDLE="%~"
-
-# Spaceship Prompt Configuartion - https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
-# SPACESHIP_PROMPT_ADD_NEWLINE=false
-# SPACESHIP_ASYNC_SHOW=false
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -45,19 +40,15 @@ load-nvmrc
 # eval $(thefuck --alias)
 
 # oh-my-zsh Configuration
-# function precmd () {
-#   Adds new line after every prompt
-#   precmd() {
-#       echo
-#   }
-#   $funcstack[1]() {
-#     echo
-#   }
+function precmd () {
+  # Adds new line after every prompt. Set add_newline to false in starhip.toml
+  precmd() {
+      echo
+  }
+}
 
-#   Simplified Title - https://www.robertcooper.me/elegant-development-experience-with-zsh-and-hyper-terminal
-#   window_title="\\033]0;${PWD##*/}\\007"
-#   echo -ne "$window_title"
-# }
+# Alias to clear the terminal and remove the extra line
+alias clear="precmd() {precmd() {echo }} && clear"
 
 
 
@@ -145,10 +136,6 @@ function npmuninstall() {
 #
 # Other stuff
 #
-
-# Removes xenobook@Bryans-MBP from every line
-# Not needed with spaceship prompt
-# DEFAULT_USER="xenobook"
 
 # iTerm2 Shell Integration
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
