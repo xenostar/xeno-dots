@@ -5,6 +5,7 @@
 # ZSH
 GIT_COMPLETION_CHECKOUT_NO_GUESS=1 # Apparently only shows local branhces?
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+ZSH_THEME_TERM_TITLE_IDLE="%~" # Makes new tab titles change from username@computername~:~/currentDir to just ~/currentDir
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
