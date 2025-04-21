@@ -48,10 +48,12 @@ cursor-style = block
 font-family = FiraCode Nerd Font
 font-size = 12
 # font-thicken = true
+keybind = global:alt+`=toggle_quick_terminal
+macos-titlebar-style = tabs
+quick-terminal-position = bottom
 resize-overlay = never
 shell-integration-features = no-cursor
 theme = catppuccin-mocha
-macos-titlebar-style = tabs
 # window-padding-balance = true
 window-padding-x = 10
 window-padding-y = 10
