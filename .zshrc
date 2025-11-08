@@ -115,8 +115,5 @@ alias mypath='echo -e ${PATH//:/\\n}'
 # Sourcing other profiles
 source "$HOME/.profile"
 
-# iTerm shell integration
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Enable Starship Shell
 eval "$(starship init zsh)"
