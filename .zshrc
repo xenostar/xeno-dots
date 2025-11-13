@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 alias change="code ~/.zshrc"
 alias gdiffc='git diff | pbcopy'
 alias gdifft='git diff -u > diff.txt'
+alias gdiffp='pbpaste | git apply'
 alias ll='eza -la'
 alias update="source ~/.zshrc"
 alias mypath='echo -e ${PATH//:/\\n}'
