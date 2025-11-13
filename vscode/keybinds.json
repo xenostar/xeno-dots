@@ -40,12 +40,60 @@
   { "key": "ctrl+8", "command": "-workbench.action.openEditorAtIndex8" },
   { "key": "ctrl+8", "command": "workbench.action.focusEighthEditorGroup" },
 
+  { "key": "cmd+9", "command": "-workbench.action.focusEighthEditorGroup" },
   { "key": "cmd+9", "command": "workbench.action.openEditorAtIndex9" },
   { "key": "ctrl+9", "command": "-workbench.action.openEditorAtIndex9" },
+  { "key": "ctrl+9", "command": "workbench.action.focusEighthEditorGroup" },
 
   { "key": "shift+cmd+d", "command": "-workbench.view.debug" },
   {
     "key": "shift+cmd+d",
     "command": "editor.action.addSelectionToPreviousFindMatch"
+  },
+
+  {
+    "key": "alt+left",
+    "command": "cursorWordPartLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+alt+left",
+    "command": "-cursorWordPartLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+left",
+    "command": "cursorWordPartLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "-cursorWordPartLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+right",
+    "command": "cursorWordPartRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "-cursorWordPartRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+right",
+    "command": "cursorWordPartRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "-cursorWordPartRightSelect",
+    "when": "textInputFocus"
+  },
+
+  {
+    "key": "ctrl+cmd+.",
+    "command": "eslint.executeAutofix"
   }
 ]
