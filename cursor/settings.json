@@ -2,14 +2,22 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "chat.agent.enabled": true,
+  "cursor.cpp.disabledLanguages": ["markdown", "scminput"],
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorBlinking": "smooth",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": { "strings": "on" },
+  "editor.rulers": [90],
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
@@ -22,18 +30,30 @@
   },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "githubPullRequests.pullBranch": "never",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "material-icon-theme.activeIconPack": "react",
+  "prettier.trailingComma": "all",
+  "prisma.showPrismaDataPlatformNotification": false,
   "quokka.showOutputOnStart": false,
-  "search.exclude": {
-    "**/.next": true,
-    "package-lock.json": true
-  },
+  "search.exclude": { "**/.next": true, "package-lock.json": true },
+  "security.workspace.trust.untrustedFiles": "open",
   "telemetry.telemetryLevel": "off",
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
   "terminal.integrated.tabs.enabled": false,
   "totalTypeScript.hiddenTips": [
     "typing-function-parameters",
@@ -81,45 +101,10 @@
   "typescript.disableAutomaticTypeAcquisition": true,
   "window.dialogStyle": "custom",
   "workbench.colorTheme": "One Dark Pro",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.tabSizing": "shrink",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none",
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": true,
-    "markdown": false,
-    "scminput": false
-  },
-  "workbench.editor.empty.hint": "hidden",
-  "editor.linkedEditing": true,
-  "prisma.showPrismaDataPlatformNotification": false,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "editor.rulers": [90],
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "prettier.trailingComma": "all",
-  "workbench.activityBar.location": "top",
-  "workbench.editor.editorActionsLocation": "titleBar",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
-  "githubPullRequests.pullBranch": "never",
-  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  // "typescript.inlayHints.parameterTypes.enabled": true,
-  // "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  // "typescript.inlayHints.variableTypes.enabled": true,
-  // "workbench.editorAssociations": {
-  //   "*.md": "vscode.markdown.preview.editor"
-  // },
-  "chat.agent.enabled": true,
-  "github.copilot.chat.agent.thinkingTool": true,
-  "gitlens.ai.model": "gitkraken",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "cursor.cpp.disabledLanguages": [
-    "markdown",
-    "scminput"
-  ],
-  "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash"
+  "workbench.startupEditor": "none"
 }
