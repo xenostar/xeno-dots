@@ -25,8 +25,6 @@ alias clear="precmd() {precmd() {echo }} && clear"
 
 
 
-
-
 #
 # Custom Functions
 #
@@ -101,14 +99,3 @@ function npminstall() {
 function npmuninstall() {
   npm uninstall -g gatsby-cli lighthouse ngrok nodemon now serve
 }
-
-
-
-
-
-#
-# Other stuff
-#
-
-# iTerm2 Shell Integration
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
