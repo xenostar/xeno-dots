@@ -58,4 +58,6 @@ theme = Catppuccin Mocha
 window-padding-x = 10
 window-padding-y = 10
 working-directory = /Users/bryanleewood/code
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
 # keybind = shift+enter=text:\x1b\r
