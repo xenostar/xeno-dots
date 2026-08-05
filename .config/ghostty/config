@@ -46,8 +46,9 @@ background-opacity = 0.75
 background-blur = true
 cursor-style = block
 font-family = FiraCode Nerd Font
-font-size = 12
 # font-thicken = true
+# font-thicken-strength = 0
+font-size = 13
 keybind = global:alt+`=toggle_quick_terminal
 macos-titlebar-style = tabs
 quick-terminal-position = bottom
