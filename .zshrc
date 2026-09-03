@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Keep PATH entries unique (prevents duplicates from nested/re-sourced shells)
+typeset -U path PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -121,7 +124,9 @@ alias mypath='echo -e ${PATH//:/\\n}'
 alias claude-yolo="claude --dangerously-skip-permissions"
 
 # Sourcing other profiles
+source "$HOME/.do_not_commit_to_github_profile"
 source "$HOME/.profile"
+source "$HOME/.turorc"
 
 # Calling nvm use automatically in a directory with a .nvmrc file
 # place this after nvm initialization!
