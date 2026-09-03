@@ -29,45 +29,7 @@ alias clear="precmd() {precmd() {echo }} && clear"
 # Custom Functions
 #
 
-# Add new variables to iTerm2 session
-# function iterm2_print_user_vars() {
-#   # extend this to add whatever
-#   # you want to have printed out in the status bar
-#   iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
-#   iterm2_set_user_var nodeVersion $(node -v)
-#   iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
-#   iterm2_set_user_var pwd $(pwd)
-# }
-
-# iTermocil "go" shortcut
-function go() {
-  if [ $1 ]
-  then
-    itermocil $1 --here
-  else
-    itermocil --list
-  fi
-}
-
-# Git commit with current branch name
-# Requires zsh for git_current_branch function to work.
-function gcc() {
-  # git commit -m "#$(git_current_branch) $1"
-  git commit -m "$(git_current_branch) $1"
-}
-# Same as above but with no code verification required
-function gccn() {
-  git commit --no-verify -m "$(git_current_branch) $1"
-}
-
-# Git commit with current branch name ("issue-" removed)
-# Requires zsh for git_current_branch function to work.
-function gccold() {
-  # branch="$(git_current_branch)"
-  # prefix="issue-"
-  # prefix_removed_branch=${branch/#$prefix}
-  git commit -m "#${$(git_current_branch)/#issue-} $1"
-}
+alias gcob='git branch | fzf | xargs git checkout'
 
 function flushdns() {
   sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder && echo \"DNS cache flushed successfully\"
@@ -78,13 +40,6 @@ function flushdns() {
 #   git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev|project-133)\s*$)" | command xargs -n 1 git branch -d
 # }
 
-# Easy git commits
-# function lazygit() {
-#   git add --all
-#   git commit -m "$1"
-#   git push
-# }
-
 # List global npm packages
 function npmglobal() {
   npm list -g --depth 0
@@ -92,10 +47,10 @@ function npmglobal() {
 
 # Install common global npm packages
 function npminstall() {
-  npm install -g gatsby-cli lighthouse ngrok nodemon now serve
+  npm install -g lighthouse ngrok nodemon now serve
 }
 
 # Uninstall common global npm packages
 function npmuninstall() {
-  npm uninstall -g gatsby-cli lighthouse ngrok nodemon now serve
+  npm uninstall -g lighthouse ngrok nodemon now serve
 }
