@@ -1,6 +1,8 @@
 onboarding = false
+
 [ui]
-show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
+agent_panel_sort = "spaces"
 
 [theme]
 name = "catppuccin"
@@ -8,3 +10,8 @@ auto_switch = false
 
 [terminal]
 new_cwd = "~/code"
+
+[keys]
+prefix = "ctrl+alt+cmd+shift+space"
+cycle_pane_next     = ["prefix+tab", "ctrl+alt+]"]
+cycle_pane_previous = ["prefix+shift+tab", "ctrl+alt+["]
