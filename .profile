@@ -31,6 +31,15 @@ alias clear="precmd() {precmd() {echo }} && clear"
 
 alias gcob='git branch | fzf | xargs git checkout'
 
+# Jump to a git worktree via fuzzy picker (shows path + branch)
+function gcow() {
+  local dir
+  dir=$(git worktree list \
+    | fzf --prompt="worktree> " \
+    | awk '{print $1}') \
+    && [ -n "$dir" ] && cd "$dir"
+}
+
 function flushdns() {
   sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder && echo \"DNS cache flushed successfully\"
 }
