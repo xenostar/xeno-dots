@@ -22,6 +22,10 @@ const ModList = (props: ModListProps) => { /* ... */ };
 const handleClick = () => { /* ... */ };
 ```
 
+## Conventional Commits
+
+Keep conventional commit messages under 100 characters in length.
+
 ## Work Conventions
 
 @~/.claude/work-conventions.md
