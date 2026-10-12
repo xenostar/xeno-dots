@@ -1,12 +1,12 @@
 ---
-name: commit
+name: pr-commit
 disable-model-invocation: true
 argument-hint: [plan | single | guidance]
 description: Group uncommitted changes into logical conventional commits, ensuring pre-commit hooks pass for each. Never pushes.
 allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git show:*), Bash(git add:*), Bash(git restore --staged:*), Bash(git commit:*), Bash(git rev-parse:*), Bash(git branch:*)
 ---
 
-# Commit
+# PR Commit
 
 Split the current uncommitted changes into logical conventional commits, so the history reads like
 it was committed by hand, step by step.
