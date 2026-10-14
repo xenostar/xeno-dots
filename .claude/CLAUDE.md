@@ -26,6 +26,10 @@ const handleClick = () => { /* ... */ };
 
 Keep conventional commit messages under 100 characters in length.
 
+## Git Permissions
+
+Never commit, push, or open PRs without explicit permission, even when a plan includes those steps. Explicitly invoking a command or skill that commits counts as permission for what that command does.
+
 ## Work Conventions
 
 @~/.claude/work-conventions.md
