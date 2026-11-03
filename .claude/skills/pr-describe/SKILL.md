@@ -14,7 +14,9 @@ the Description section of the PR template.
 The Changes section can be left as-is, as it automatically includes commits when the PR is opened.
 
 The Testing section should be updated when actionable testing instructions can be
-provided (see Step 5).
+provided (see Step 6).
+
+Only edit PRs authored by the current user without asking first (see Step 3).
 
 ## Workflow
 
@@ -28,10 +30,20 @@ URL format: `https://github.com/{owner}/{repo}/pull/{pullNumber}`
 
 Use the `gh` CLI to gather context. Run these in parallel:
 
-1. **Get PR details** — `gh pr view <pullNumber> --repo <owner>/<repo> --json title,body` to retrieve the current title and body.
+1. **Get PR details** — `gh pr view <pullNumber> --repo <owner>/<repo> --json title,body,author` to retrieve the current title, body, and author.
 2. **Get PR diff** — `gh pr diff <pullNumber> --repo <owner>/<repo>` to see the actual code changes.
+3. **Get current user** — `gh api user --jq .login` to retrieve the authenticated GitHub login.
 
-### Step 3: Write the description
+### Step 3: Verify PR ownership
+
+Compare the PR's `author.login` with the current user's login.
+
+If they do not match, **stop before writing or pushing anything**. Ask the user explicitly whether
+editing this PR is intentional, naming the PR author (e.g. "This PR was opened by `@other-user`, not
+you. Updating it will overwrite their description. Is that intentional?"). Only continue to the
+next steps if the user confirms. If they decline or don't answer, do not edit the PR.
+
+### Step 4: Write the description
 
 Analyze the diff and write a succinct summary covering:
 
@@ -40,7 +52,7 @@ Analyze the diff and write a succinct summary covering:
 
 Do NOT list every file or repeat commit messages verbatim. Be concise.
 
-### Step 4: Update the Description in the PR body
+### Step 5: Update the Description in the PR body
 
 Replace **only** the content under the `**Description:**` heading — the text between
 the `**Description:**` line and the next `**Changes:**` heading. Preserve everything else
@@ -52,7 +64,7 @@ Build the new body by:
 2. Replacing the text between `**Description:**` (and its HTML comment) and `**Changes:**` with your new description
 3. Keeping a blank line before and after the description text
 
-### Step 5: Update the Testing section
+### Step 6: Update the Testing section
 
 Based on the diff and conversation context, decide how to fill in the `**Testing:**` section:
 
@@ -62,9 +74,9 @@ Based on the diff and conversation context, decide how to fill in the `**Testing
 
 Replace the text between `**Testing:**` (and its HTML comment) and the next heading (e.g. `**Responsibilities:**`) with your testing content, preserving everything else.
 
-### Step 6: Push the update
+### Step 7: Push the update
 
-Update the PR body using the `gh` CLI with the full updated body (including both the Description and Testing changes from Steps 4–5):
+Update the PR body using the `gh` CLI with the full updated body (including both the Description and Testing changes from Steps 5–6):
 
 ```
 gh pr edit <pullNumber> --repo <owner>/<repo> --body "$(cat <<'EOF'
@@ -73,6 +85,6 @@ EOF
 )"
 ```
 
-### Step 7: Confirm
+### Step 8: Confirm
 
 Tell the user what description and testing instructions were written and that the PR has been updated.
