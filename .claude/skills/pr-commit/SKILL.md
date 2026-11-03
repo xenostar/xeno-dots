@@ -24,10 +24,18 @@ it was committed by hand, step by step.
 - Stage files by explicit path. Never use `git add .` or `git commit -a`.
 - Conventional commit headers under 100 characters, matching the repo's style in `git log`.
 - Do not mention Claude/AI or add a `Co-Authored-By` trailer.
+- Treat each repository independently. When the workspace spans multiple repositories, never combine
+  files from different repositories into one commit — stage, group, and commit within a single
+  repository at a time.
 
 ## Workflow
 
-1. **Gather context.** Record the starting `HEAD` SHA. Review all staged, unstaged, and untracked
+If the workspace spans multiple repositories, run this entire workflow separately for each repository
+that has changes. Keep each repository's grouping, commits, starting SHA, and summary distinct; never
+mix files across repositories.
+
+1. **Gather context.** Identify every repository in the workspace that has changes. For each
+   repository, record its own starting `HEAD` SHA and review all staged, unstaged, and untracked
    changes, and recent commit history.
 2. **Exclude** secrets, build output, scratch/debug files, or anything unrelated to the work. Leave
    them uncommitted.
@@ -47,10 +55,11 @@ it was committed by hand, step by step.
 
 ## Summary
 
-When finished, report:
+When finished, report per repository (group the output under each repository when more than one is
+involved):
 
 - Each commit created, in order, with its message and the files it contains
   (`git log --name-status <starting-sha>..HEAD`)
 - Files left uncommitted and why
 - If stopped early, which commit failed and the hook output
-- The undo command: `git reset --soft <starting-sha>`
+- The undo command for that repository: `git reset --soft <starting-sha>`
