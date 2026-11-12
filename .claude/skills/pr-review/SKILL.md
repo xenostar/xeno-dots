@@ -13,6 +13,9 @@ Thoroughly review a pull request and present findings as a list for triage.
 
 - Do **NOT** comment on, review, or approve the PR on GitHub.
 - Do **NOT** make, ship, or commit any code changes.
+- Do **NOT** modify the local checkout: never run `git checkout`, `switch`, `stash`,
+  `reset`, or `pull`, and never read PR code from the working tree or `FETCH_HEAD`.
+  Other reviews may be running in parallel in the same repo.
 - Only gather context, analyze, and present findings. The user decides which
   findings to act on afterward.
 
@@ -28,10 +31,12 @@ URL format: `https://github.com/{owner}/{repo}/pull/{pullNumber}`
 
 Use the `gh` CLI. Run these in parallel:
 
-1. **PR metadata** — title, body, author, base/head branches, state, labels, draft status:
+1. **PR metadata** — title, body, author, base/head branches and SHAs, state, labels,
+   draft status:
    ```
-   gh pr view <pullNumber> --repo <owner>/<repo> --json title,body,author,baseRefName,headRefName,state,isDraft,labels,additions,deletions,changedFiles
+   gh pr view <pullNumber> --repo <owner>/<repo> --json title,body,author,baseRefName,headRefName,headRefOid,baseRefOid,isCrossRepository,state,isDraft,labels,additions,deletions,changedFiles
    ```
+   `headRefOid` (`headSha`) and `baseRefOid` (`baseSha`) pin every later code read.
 2. **PR diff** — the actual code changes:
    ```
    gh pr diff <pullNumber> --repo <owner>/<repo>
@@ -56,7 +61,35 @@ Use the `gh` CLI. Run these in parallel:
 For unresolved vs. resolved review threads, use the GraphQL `reviewThreads` query
 (see [pr-feedback](../pr-feedback/SKILL.md) Step 3) if thread resolution state matters.
 
-### Step 3: Pull in linked Jira tickets
+### Step 3: Prepare to read PR code
+
+All code reads are pinned to `headSha` or `baseSha` so parallel reviews in the same
+repo never share git state.
+
+1. **Find the local repo.** The working directory may be `~/code` or an unrelated
+   repo. Look for `~/code/<repo>` and confirm it matches the PR's repo:
+   ```
+   git -C <dir> remote get-url origin
+   ```
+2. **If it matches**, fetch the PR's objects without writing any refs or `FETCH_HEAD`
+   (works for fork PRs too; retry once on "cannot lock ref"):
+   ```
+   git -C <dir> fetch --no-write-fetch-head origin pull/<pullNumber>/head
+   ```
+   Then read and search by SHA:
+   - `git -C <dir> show <headSha>:<path>` — the PR's version of a file
+   - `git -C <dir> show <baseSha>:<path>` — the original version
+   - `git -C <dir> grep <pattern> <headSha>` — search the PR's tree (e.g. callers of a
+     changed function)
+3. **If there is no matching local repo**, read files through the API:
+   ```
+   gh api "repos/<owner>/<repo>/contents/<path>?ref=<sha>" -H "Accept: application/vnd.github.raw"
+   ```
+
+If you write a scratch file (e.g. a saved diff), create it with `mktemp`; never use a
+fixed path like `/tmp/pr.diff`.
+
+### Step 4: Pull in linked Jira tickets
 
 Identify Jira ticket references from the PR title, branch name, and body
 (Turo format: `<JIRA-ID>: Brief description`, e.g. `CPL-365`). For each ticket ID
@@ -70,7 +103,7 @@ scope and acceptance criteria:
 Use this to judge whether the PR **actually accomplishes what the ticket asked**
 and whether it stays within scope.
 
-### Step 4: Understand before critiquing
+### Step 5: Understand before critiquing
 
 Before listing findings, form a clear mental model:
 
@@ -78,16 +111,25 @@ Before listing findings, form a clear mental model:
 - What is the overall approach, and is it sound?
 - Which files carry the core logic vs. incidental churn?
 
-If the diff references existing code you haven't seen, read the surrounding files
-in the repo (clone/checkout not required — use `gh api .../contents` or read local
-files if the repo is checked out) so findings are grounded in reality, not guesses.
+If the diff references existing code you haven't seen, read the surrounding files at
+`headSha` (or `baseSha` for the pre-change version) using the commands from Step 3,
+so findings are grounded in reality, not guesses. Never read the working tree; it may
+be on another branch or have uncommitted changes.
 
-### Step 5: Deep review (optionally parallelize with subagents)
+### Step 6: Deep review (optionally parallelize with subagents)
 
 For small PRs, review directly. For **large or multi-concern PRs**, spin up
 `explore` or `generalPurpose` subagents in parallel, each focused on one lens, then
 aggregate their findings. Give each subagent the PR diff/context and ask it to
-return findings in the format from Step 6.
+return findings in the format from Step 7.
+
+Subagents don't inherit this skill, so each subagent prompt must include:
+
+- The local repo directory (or that it must use the `gh api` fallback), `headSha`,
+  and `baseSha`.
+- The exact read commands from Step 3.
+- The rule against modifying the checkout: no `checkout`, `switch`, `stash`, `reset`,
+  or `pull`, and no reading PR code from the working tree or `FETCH_HEAD`.
 
 Review lenses to cover:
 
@@ -110,7 +152,7 @@ Review lenses to cover:
 - **Unaddressed discussion** — open review comments or Jira notes not yet resolved
   by the current diff.
 
-### Step 6: Present findings
+### Step 7: Present findings
 
 Present findings as a **numbered list**, grouped by severity (highest first):
 
@@ -142,7 +184,7 @@ N. [🔴/🟡/🟢/💬] <path:line | General> — <short title>
 End with a brief **summary**: overall assessment, whether the PR accomplishes the
 ticket's goal, count of findings by severity, and anything the PR does well.
 
-### Step 7: Hand off for triage
+### Step 8: Hand off for triage
 
 Stop after presenting findings. Wait for the user to decide which findings to act
 on. Do not comment on the PR, post a review, or change code unless the user
